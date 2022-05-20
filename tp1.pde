@@ -13,7 +13,7 @@ void setup () {
   background1 = loadImage("title.jpg");
   background2 = loadImage("characters.jpg");
   background3 = loadImage("more_characters.jpg");
-  background4 = loadImage("producers.jpg");
+  background4 = loadImage("producers.png");
   background5 = loadImage("end.jpg");
   lantern     = loadImage("lantern.png");
   font        = loadFont("Tangled.vlw");
@@ -51,7 +51,7 @@ void draw() {
   }
 }
 
-// título
+// title
 void firstScreen() { 
   if (screen_number == 0) {
     image(background1, 300, 250, 600, 500);
