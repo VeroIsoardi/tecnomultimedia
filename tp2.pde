@@ -1,6 +1,7 @@
 // 85091/4
 // Isoardi Verónica
 // Comisión 4
+// https://youtu.be/zOJuGPyOBlg
 
 int  posX, posY;
 color white = (255);
@@ -19,17 +20,17 @@ void draw() {
 
   for (int j = 1; j <= 4; j++) {
     if (j % 2 != 0) {
-      firstHalfRow();
+      firstRow();
       posX  = 11;
     } else {
-      secondHalfRow();
+      secondRow();
       posX  = 5;
     }  
     posY += 168;
   }
 }
 
-void firstHalfRow() {
+void firstRow() {
   int tHeight = 150;
   int tWidth = 0;
 
@@ -55,7 +56,7 @@ void firstHalfRow() {
   }
 }
 
-void secondHalfRow() {
+void secondRow() {
   int tHeight = 150;
   int tWidth = 0;
 
@@ -134,6 +135,7 @@ void setColor() {
 void mouseClicked(){
   strokeWeight(random(8, 18));
 }
+
 void changeColor() {
   startWhite = !startWhite;
 }
