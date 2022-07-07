@@ -102,6 +102,7 @@ void keyPressed() {
   } else {
     if (screenNumber == 1 && key == 'r') { // user is playing
       restartGame();
+      changeToGameScreen();
     }
     if (key == 'b') { // user is not on the menu
       changeToMenuScreen();

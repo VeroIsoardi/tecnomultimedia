@@ -11,8 +11,10 @@ void game() {
     showPattern();
   } else if ( round == maxRounds) {
     winner();
+    restartGame();
   } else {
     loser();
+    restartGame();
   }
 }
 
@@ -88,37 +90,34 @@ void winner() {
 }
 
 void showPattern() {
-  if ( round > currentRound) {
-    patternDone = false;
-  }
-
   if (!patternDone) {
     if (round < 5) {
       time -= 15;
     } else if (round >= 5 && round > 10) {
-      time -= 30;
+      time -= 20;
     } else {
-      time -= 45;
+      time -= 25;
     }
 
     if (round + 1 > currentRound && time > 0) { 
       tileOn = true;
       chosenColor = colors[computerOrder[currentRound]];
       displaySimon();
-    } else if (time == height) {
+    } else if (time == height && round + 1 > currentRound) {
       time = height;
       tileOn = false;
       currentRound++;
     } else {
-      time         = height;
-      currentRound = 0;
-      tileOn       = false;
-      patternDone  = true;
+        time         = height;
+        currentRound = 0;
+        tileOn       = false;
+        patternDone  = true;
     }
   }
 }
 
 void restartGame() {
+  continueGame   = true;
   gameNotStarted = true;
   tileOn         = false;
   round          = 0;
@@ -127,11 +126,13 @@ void restartGame() {
 }
 
 void checkPattern() {
-  if (round + 1 > tilesPressed) {
+  if (round + 1 >= tilesPressed) {
     if (computerOrder[round] != userOrder[round]) {
       continueGame = false;
     }
-  } else {
+  }
+
+  if (round + 1 == tilesPressed) {
     round++;
     currentRound = 0;
   }
@@ -140,24 +141,24 @@ void checkPattern() {
 void saveColor() {
   if (posX > 100 && posX <= 300) {
     if (posY > 100 && posY <= 300) {
-      userOrder[round] = colors[0]; // clicked green tile
+      userOrder[round] = 0; // clicked green tile
       chosenColor = green;
     }  
 
     if (posY > 300 && posY <= 500) {
-      userOrder[round] = colors[2]; // clicked yellow tile
+      userOrder[round] = 2; // clicked yellow tile
       chosenColor = yellow;
     }
   }
 
   if (posX > 300 && posX <= 500) {
     if (posY > 100 && posY <= 300) {
-      userOrder[round] = colors[1]; // clicked red tile
+      userOrder[round] = 1; // clicked red tile
       chosenColor = red;
     }  
 
     if (posY > 300 && posY <= 500) {
-      userOrder[round] = colors[3]; // clicked blue tile
+      userOrder[round] = 3; // clicked blue tile
       chosenColor = blue;
     }
   }
