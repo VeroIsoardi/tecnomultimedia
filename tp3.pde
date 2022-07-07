@@ -5,17 +5,22 @@
 PFont   font;
 color[] colors;
 int[]   computerOrder, userOrder;
-int     screenNumber, round, maxRounds, posX, posY;
-color   green, blue, yellow, red;
-boolean patternDone;
+int     screenNumber, round, currentRound, maxRounds, posX, posY, time, tilesPressed;
+color   green, blue, yellow, red, chosenColor;
+boolean patternDone, tileOn, gameNotStarted, continueGame;
 
 void setup() {
   size(600, 600);
   background(0);
   colorMode(RGB);
   patternDone   = false;
+  gameNotStarted= true;
+  continueGame  = true;
   screenNumber  = 0;
   round         = 0;
+  currentRound  = 0;
+  tilesPressed  = 0;
+  time          = height; 
   maxRounds     = 20;
   colors        = new color[4];
   computerOrder = new int[maxRounds];
