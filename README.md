@@ -2,6 +2,6 @@
 
 Repositorio con los trabajos de la materia Tecnología Multimedial 1 (2022)
 
-## Trabajo Práctico 2
+## Trabajo Práctico 3
 
-_Ilusión óptica interactiva_
+_Juego “Simon Says”_
