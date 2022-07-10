@@ -134,7 +134,7 @@ void restartGame() {
 
 void checkPattern() {
   if (round + 1 > tilesPressed) {
-    if (computerOrder[round] != userOrder[round]) {
+    if (computerOrder[currentRound] != userOrder[currentRound]) {
       continueGame = false;
     }
   }
