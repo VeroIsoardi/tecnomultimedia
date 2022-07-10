@@ -14,6 +14,7 @@ void setup() {
   background(0);
   colorMode(RGB);
   patternDone   = false;
+  tileOn        = false;
   gameNotStarted= true;
   continueGame  = true;
   screenNumber  = 0;

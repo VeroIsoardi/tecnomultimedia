@@ -1,6 +1,7 @@
 void game() {
   background(20);
   returnToMenuText();
+
   if (continueGame && round + 1 <= maxRounds) {
     if (round == 0 && gameNotStarted) {
       setPattern();
@@ -91,6 +92,7 @@ void winner() {
 
 void showPattern() {
   if (!patternDone) {
+
     if (round < 5) {
       time -= 15;
     } else if (round >= 5 && round > 10) {
@@ -99,19 +101,21 @@ void showPattern() {
       time -= 25;
     }
 
-    if (round + 1 > currentRound && time > 0) { 
-      tileOn = true;
-      chosenColor = colors[computerOrder[currentRound]];
+    if (round + 1 > currentRound) {
+      if (time > 0) { 
+        tileOn = true;
+        chosenColor = colors[computerOrder[currentRound]];
+      } else {
+        time = height;
+        tileOn = false;
+        currentRound++;
+      }
       displaySimon();
-    } else if (time == height && round + 1 > currentRound) {
-      time = height;
-      tileOn = false;
-      currentRound++;
     } else {
-        time         = height;
-        currentRound = 0;
-        tileOn       = false;
-        patternDone  = true;
+      time         = height;
+      currentRound = 0;
+      tileOn       = false;
+      patternDone  = true;
     }
   }
 }
@@ -120,21 +124,19 @@ void restartGame() {
   continueGame   = true;
   gameNotStarted = true;
   tileOn         = false;
+  patternDone    = false;
   round          = 0;
   currentRound   = 0;
+  tilesPressed   = 0;
   time           = height;
+  setPattern();
 }
 
 void checkPattern() {
-  if (round + 1 >= tilesPressed) {
+  if (round + 1 > tilesPressed) {
     if (computerOrder[round] != userOrder[round]) {
       continueGame = false;
     }
-  }
-
-  if (round + 1 == tilesPressed) {
-    round++;
-    currentRound = 0;
   }
 }
 
@@ -172,8 +174,13 @@ void mousePressed() {
     tilesPressed++;
     saveColor();
     checkPattern();
+
     if (round + 1 == tilesPressed) { 
       patternDone = false;
+      round++;
+      tilesPressed = 0;
+      currentRound = 0;
+      time = height;
     }
   }
 }
