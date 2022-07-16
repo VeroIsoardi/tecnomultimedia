@@ -12,8 +12,9 @@ void menu() {
   textSize(28);
   text("New game [n]", width/2, 240);
   text("Restart game [r]", width/2, 300);
-  text("Credits [c]", width/2, 360);
-  text("Exit [e]", width/2, 420);
+  text("How to play [h]", width/2, 360);
+  text("Credits [c]", width/2, 420);
+  text("Exit [e]", width/2, 480);
 }
 
 void title() {

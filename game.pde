@@ -12,10 +12,8 @@ void game() {
     showPattern();
   } else if ( round == maxRounds) {
     winner();
-    restartGame();
   } else {
     loser();
-    restartGame();
   }
 }
 
@@ -133,10 +131,11 @@ void restartGame() {
 }
 
 void checkPattern() {
-  if (round + 1 > tilesPressed) {
+  if (round + 1 >= tilesPressed) {
     if (computerOrder[currentRound] != userOrder[currentRound]) {
       continueGame = false;
     }
+    currentRound++;
   }
 }
 

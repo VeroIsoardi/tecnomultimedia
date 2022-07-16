@@ -1,6 +1,7 @@
 // 85091/4
 // Isoardi Verónica
 // Comisión 4
+// https://youtu.be/rimq_WiT_V0
 
 PFont   font;
 color[] colors;
@@ -52,6 +53,9 @@ void draw() {
     game();
     break;
   case 2: 
+    instructions();
+    break;
+  case 3:
     credits();
     break;
   }
@@ -60,9 +64,9 @@ void draw() {
 /* other functions */
 void setBackground() {
   background(20);
-  for (int i = 0; i<30; i++){
-   stroke(random(100, 200));
-   circle(random(width), random(height), random(0, 3));
+  for (int i = 0; i<30; i++) {
+    stroke(random(100, 200));
+    circle(random(width), random(height), random(0, 3));
   }
 }
 
@@ -82,16 +86,27 @@ void changeToGameScreen() {
   game();
 }
 
-void changeToCreditsScreen() {
+void changeToInstructionsScreen() {
   screenNumber = 2;
+  instructions();
+}
+
+void changeToCreditsScreen() {
+  screenNumber = 3;
   credits();
 }
 
 void keyPressed() {
   if (screenNumber == 0) { // user is on the menu
     switch(key) {
+    case 'h':
+      changeToInstructionsScreen();
+      break;
     case 'n':
+      changeToGameScreen();
+      break;
     case 'r':
+      restartGame();
       changeToGameScreen();
       break;
     case 'c':
@@ -106,6 +121,7 @@ void keyPressed() {
       changeToGameScreen();
     }
     if (key == 'b') { // user is not on the menu
+      restartGame();
       changeToMenuScreen();
     }
   }
