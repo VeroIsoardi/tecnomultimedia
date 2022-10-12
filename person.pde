@@ -20,7 +20,7 @@ class Person {
     ellipse(posX+125, posY, 140, 80);
     textSize(12);
     fill(#000000);
-    text(message, posX+70, posY-15);
+    text(message, posX+67, posY-13);
   }
 
   void walk(int max, int speed) {
