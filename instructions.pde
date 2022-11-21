@@ -12,10 +12,8 @@ class Instructions {
   void display() { 
     image(background, 0, 0, 1200, 600);
     backButton.display();
-    
-    fill(100);
+
     textSize(40);
-    textAlign(CENTER);
     text("How to play", 600, 100);
     
     textSize(20);

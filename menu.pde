@@ -6,8 +6,8 @@ class Menu {
   Menu(Game g) {
     background   = loadImage("DefaultBackground.jpg");
     instructions = new Button(430, 50, "Instructions", false);
-    credits      = new Button(430, 170, "Credits", false);
-    startGame    = new Button(430, 290, "Start Game", false);
+    credits      = new Button(430, 290, "Credits", false);
+    startGame    = new Button(430, 170, "Start Game", false);
     game         = g;
   }
 
@@ -15,8 +15,8 @@ class Menu {
     image(background, 0, 0, 1200, 600);
 
     instructions.display();
-    credits.display();
     startGame.display();
+    credits.display();
   }
 
   void mouseClick(int x, int y) {

@@ -14,6 +14,7 @@ class Game {
     font         = loadFont("RetroGaming.vlw");
     screen       = 0;
     textFont(font, 32);
+    fill(100);
   }
 
   void display() {
