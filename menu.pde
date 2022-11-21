@@ -5,9 +5,9 @@ class Menu {
 
   Menu(Game g) {
     background   = loadImage("DefaultBackground.jpg");
-    instructions = new Button(430, 50, "Instructions");
-    credits      = new Button(430, 170, "Credits");
-    startGame    = new Button(430, 290, "Start Game");
+    instructions = new Button(430, 50, "Instructions", false);
+    credits      = new Button(430, 170, "Credits", false);
+    startGame    = new Button(430, 290, "Start Game", false);
     game         = g;
   }
 

@@ -5,8 +5,8 @@ class Credits {
 
   Credits(Game g) {
     background = loadImage("GameBackground.png");
-    restart    = new Button(100, 200, "Restart");
-    back       = new Button(300, 200, "Back");
+    restart    = new Button(100, 200, "Restart", false);
+    back       = new Button(300, 200, "<", true);
     game       = g;
   }
 

@@ -9,7 +9,7 @@ class MiniGame {
     gameBackground = loadImage("GameBackground.png");
     dino           = new Dino();
     villains       = new Villain[3];
-    backButton = new Button(20, 20, "Back");
+    backButton     = new Button(20, 20, "<", true);
     game           = g;
     loadVillains();
   }
