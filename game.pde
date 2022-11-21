@@ -1,23 +1,19 @@
 class Game {
-  Menu      menu;
-  Credits   credits;
-  PImage    gameBackground;
-  PFont     font;
-  int       screen;     
-  Villain[] villains;
-  Dino      dino;
+  Menu         menu;
+  Credits      credits;
+  MiniGame     miniGame;
+  Instructions instructions;
+  PFont        font;
+  int          screen;     
 
   Game() {
-    menu           = new Menu();
-    credits        = new Credits();
-    dino           = new Dino();
-    villains       = new Villain[3];
-    font           = loadFont("RetroGaming.vlw");
-    gameBackground = loadImage("GameBackground.png");
-    screen   = 0;
+    menu         = new Menu(this);
+    credits      = new Credits(this);
+    miniGame     = new MiniGame(this);
+    instructions = new Instructions(this);
+    font         = loadFont("RetroGaming.vlw");
+    screen       = 0;
     textFont(font, 32);
-    
-    loadVillains();
   }
 
   void display() {
@@ -26,25 +22,15 @@ class Game {
       menu.display();
       break;
     case 1:
-      play();
+      instructions.display();
       break;
-    case 2: 
+    case 2:
+      miniGame.play();
+      break;
+    case 3: 
       credits.display();
       break;
     }
-  }
-
-  void play() {
-  image(gameBackground, 0, 0, 800, 600);
-  dino.show();
-  }
-
-  void menu() {
-    menu.display();
-  }
-
-  void credits() {
-    credits.display();
   }
 
   void jump() {
@@ -53,10 +39,30 @@ class Game {
     }
     print("saltando");
   }
+
+  void setKey(char character) {
+    if (character == ' ') {
+    }
+  }
+
+  void mouseEvent(int coordX, int coordY) {
+    switch(screen) {
+    case 0: 
+      menu.mouseClick(coordX, coordY);
+      break;
+    case 1:
+      instructions.mouseClick(coordX, coordY);
+      break;
+    case 2:
+      miniGame.mouseClick(coordX, coordY);
+      break;
+    case 3: 
+      credits.mouseClick(coordX, coordY);
+      break;
+    }
+  }
   
-  void loadVillains(){
-    for(int i = 0; i<3; i++){
-      villains[i] = new Villain();      
-    } 
+  void changeScreen(int screenNumber){
+    screen = screenNumber;
   }
 }

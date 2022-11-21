@@ -1,8 +1,13 @@
 class Credits {
   PImage background;
+  Button restart, back;
+  Game   game;
 
-  Credits() {
+  Credits(Game g) {
     background = loadImage("GameBackground.png");
+    restart    = new Button(100, 200, "Restart");
+    back       = new Button(300, 200, "Back");
+    game       = g;
   }
 
   void display() {
@@ -18,5 +23,15 @@ class Credits {
     text("85091/4", 380, 400);
     text("-", 510, 400);
     text("Comisión 4", 540, 400);
+    restart.display();
+    back.display();
+  }
+
+  void mouseClick(int x, int y) {
+    if (restart.click(x, y)) {
+      game.changeScreen(2);
+    } else if (back.click(x, y)) {
+      game.changeScreen(0);
+    }
   }
 }

@@ -1,11 +1,11 @@
-class Dino{
+class Dino {
   PImage dino;
-  
-  Dino(){
+
+  Dino() {
     dino = loadImage("Dino.png");
   }
-  
-  void show(){
+
+  void show() {
     image(dino, 25, 400, 100, 100);
   }
 }

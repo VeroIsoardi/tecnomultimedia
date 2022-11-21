@@ -6,7 +6,7 @@
 Game game;
 
 void setup() {
-  size (800, 600);
+  size (1200, 600);
   game = new Game();
 }
 
@@ -15,7 +15,10 @@ void draw() {
 }
 
 void keyPressed() {
-  if (key == ' ') {
-    game.jump();
-  }
+  game.setKey(key);
+}
+
+void mousePressed() {
+  print(mouseX + ", " + mouseY);
+  game.mouseEvent(mouseX, mouseY);
 }
