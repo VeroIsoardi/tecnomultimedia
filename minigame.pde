@@ -1,34 +1,46 @@
 class MiniGame {
-  PImage    gameBackground;
-  Villain[] villains;
-  Dino      dino;
-  Game      game;
-  Button    backButton;
+  PImage   gameBackground;
+  Bird     bird;
+  Cactus[] cactus;
+  Dino     dino;
+  Game     game;
+  Button   backButton;
 
   MiniGame(Game g) {
     gameBackground = loadImage("GameBackground.png");
     dino           = new Dino();
-    villains       = new Villain[3];
+    bird           = new Bird();
     backButton     = new Button(20, 20, "<", true);
+    cactus         = new Cactus[4];
     game           = g;
-    loadVillains();
+
+    loadCactus();
   }
 
   void play() {
     image(gameBackground, 0, 0, 1200, 600);
     backButton.display();
-    dino.show();
-  }
-
-  void loadVillains() {
-    for (int i = 0; i<3; i++) {
-      villains[i] = new Villain();
+    for (int i = 0; i < 4; i++) {
+      cactus[i].show();
     }
+    bird.show();
+    dino.show();
+    dino.move();
   }
 
   void mouseClick(int x, int y) {
     if (backButton.click(x, y)) {
       game.changeScreen(0);
     }
+  }
+
+  void loadCactus() {
+    for (int i = 0; i < 4; i++) {
+      cactus[i] = new Cactus(i+1);
+    }
+  }
+  
+  void jump(){
+    dino.jump();
   }
 }

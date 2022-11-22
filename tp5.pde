@@ -7,6 +7,7 @@ Game game;
 
 void setup() {
   size (1200, 600);
+  frameRate(60);
   game = new Game();
 }
 
@@ -15,10 +16,9 @@ void draw() {
 }
 
 void keyPressed() {
-  game.setKey(key);
+  game.setKey(keyCode);
 }
 
 void mousePressed() {
-  print(mouseX + ", " + mouseY);
   game.mouseEvent(mouseX, mouseY);
 }
