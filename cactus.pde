@@ -1,27 +1,38 @@
 class Cactus {
   PImage character;
-  int    x, y, speed, initialPos;
+  int    x, y, speed;
 
   Cactus(int i) {
     character  = loadImage("Cactus"+i+".png");
-    initialPos = i * int(random(10, 30));
-    x     = width - (40 * initialPos);
-    y     = 365;
+    x     = width + 50;
+    y     = 380;
     speed = 10;
   }
 
   void show() {
-    image(character, x, y, 100, 120);
-    if (x > -10) {
+    image(character, x, y, 80, 120);
+    if (x >= -10) {
       x-= speed;
     } else {
-      x = width - (40 * initialPos);
-      speed++;
+      x = width + 50;
+      speed+=3;
     }
   }
 
   int[] coordenates() {
     int[] coords = {x, y};
     return coords;
+  }
+
+  int width() {
+    return 80;
+  }
+
+  int height() {
+    return 120;
+  }
+
+  void restartPos() {
+    x = width + 50;
   }
 }

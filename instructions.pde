@@ -1,9 +1,9 @@
 class Instructions {
-  PImage background;
-  Button backButton;
-  Game   game;
+  PImage    background;
+  Button    backButton;
+  Container game;
 
-  Instructions(Game g) {
+  Instructions(Container g) {
     background = loadImage("DefaultBackground.jpg");
     backButton = new Button(20, 20, "<", true);
     game       = g;
@@ -18,7 +18,7 @@ class Instructions {
     
     textSize(20);
     text("Click on Start Game and start jumping with the space bar \n to avoid crashing into the cactuses and velociraptors.", 600, 200);
-    text("Be careful, as time goes by the speed and the amout of obstales will increase.", 600, 260);
+    text("Be careful, as time goes by the speed and the amount of obstacles will increase.", 600, 270);
   }
 
   void mouseClick(int x, int y) {

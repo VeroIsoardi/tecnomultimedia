@@ -1,15 +1,15 @@
-class Game {
+class Container {
   Menu         menu;
   Credits      credits;
-  MiniGame     miniGame;
+  MiniContainer     miniContainer;
   Instructions instructions;
   PFont        font;
   int          screen;     
 
-  Game() {
+  Container() {
     menu         = new Menu(this);
     credits      = new Credits(this);
-    miniGame     = new MiniGame(this);
+    miniContainer     = new MiniContainer(this);
     instructions = new Instructions(this);
     font         = loadFont("RetroGaming.vlw");
     screen       = 0;
@@ -26,7 +26,7 @@ class Game {
       instructions.display();
       break;
     case 2:
-      miniGame.play();
+      miniContainer.play();
       break;
     case 3: 
       credits.display();
@@ -34,9 +34,9 @@ class Game {
     }
   }
 
-  void setKey(int charCode) {
-    if (charCode == 32 && screen == 2) {
-      miniGame.jump();
+  void setKey(char space) {
+    if (space == ' ' && screen == 2) {
+      miniContainer.jump();
     }
   }
 
@@ -49,7 +49,7 @@ class Game {
       instructions.mouseClick(coordX, coordY);
       break;
     case 2:
-      miniGame.mouseClick(coordX, coordY);
+      miniContainer.mouseClick(coordX, coordY);
       break;
     case 3: 
       credits.mouseClick(coordX, coordY);

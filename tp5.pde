@@ -3,12 +3,12 @@
 // Comisión 4
 // 
 
-Game game;
+Container game;
 
 void setup() {
   size (1200, 600);
   frameRate(60);
-  game = new Game();
+  game = new Container();
 }
 
 void draw() { 
@@ -16,7 +16,7 @@ void draw() {
 }
 
 void keyPressed() {
-  game.setKey(keyCode);
+  game.setKey(key);
 }
 
 void mousePressed() {

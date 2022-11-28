@@ -1,13 +1,13 @@
 class Menu {
-  PImage background;
-  Button instructions, credits, startGame;
-  Game   game;
+  PImage    background;
+  Button    instructions, credits, startGame;
+  Container game;
 
-  Menu(Game g) {
+  Menu(Container g) {
     background   = loadImage("DefaultBackground.jpg");
-    instructions = new Button(430, 50, "Instructions", false);
-    credits      = new Button(430, 290, "Credits", false);
-    startGame    = new Button(430, 170, "Start Game", false);
+    instructions = new Button(430, 80, "Instructions", false);
+    startGame    = new Button(430, 220, "Start Game", false);
+    credits      = new Button(430, 360, "Credits", false);
     game         = g;
   }
 

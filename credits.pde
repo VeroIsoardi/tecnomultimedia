@@ -1,12 +1,12 @@
 class Credits {
-  PImage background;
-  Button backButton;
-  Game   game;
+  PImage    background;
+  Button    backButton;
+  Container container;
 
-  Credits(Game g) {
+  Credits(Container c) {
     background = loadImage("GameBackground.png");
     backButton = new Button(20, 20, "<", true);
-    game       = g;
+    container  = c;
   }
 
   void display() {
@@ -27,7 +27,7 @@ class Credits {
 
   void mouseClick(int x, int y) {
     if (backButton.click(x, y)) {
-      game.changeScreen(0);
+      container.changeScreen(0);
     }
   }
 }
