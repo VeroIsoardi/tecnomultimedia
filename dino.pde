@@ -1,15 +1,16 @@
 class Dino {
-  PImage  dino, dinoRun1, dinoRun2;
-  int     x, y;
-  boolean isGoingUp;
+  PImage      dinoRun1, dinoRun2;
+  int         x, y;
+  boolean     isGoingUp;
+  AudioPlayer jumpSound;
 
   Dino() {
-    dino      = loadImage("Dino.png");
     dinoRun1  = loadImage("DinoRunning1.png");
     dinoRun2  = loadImage("DinoRunning2.png");
     x         = 50;
     y         = 400;
     isGoingUp = false;
+    jumpSound = m.loadFile("JumpingSound.wav");
   }
 
   void show() { 
@@ -21,6 +22,14 @@ class Dino {
   }
 
   void move() {
+    if ( jumpSound.position() == jumpSound.length() )
+    {
+      jumpSound.rewind();
+      jumpSound.play();
+    } else
+    {
+      jumpSound.play();
+    }
     if (isGoingUp) {
       if ( y > 150) {
         y -= 20;
@@ -29,9 +38,12 @@ class Dino {
       }
     } else {
       if ( y < 400) {
-        y+=25;
+        y+=20;
       } else {
         y=400;
+        if (jumpSound.isPlaying()) {
+          jumpSound.pause();
+        }
       }
     }
   }

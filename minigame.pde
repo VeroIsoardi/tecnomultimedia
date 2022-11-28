@@ -9,6 +9,8 @@ class MiniContainer {
   int       dinoPosX, dinoPosY, dinoHeight, dinoWidth;
   int       objectPosX, objectPosY, objectHeight, objectWidth;
   boolean   endGame, isBirdFlying;
+  AudioPlayer ripSound;
+  
 
   MiniContainer(Container g) {
     gameBackground = loadImage("GameBackground.png");
@@ -23,6 +25,8 @@ class MiniContainer {
     isBirdFlying   = false;
     dinoHeight     = dino.height();
     dinoWidth      = dino.width();
+    ripSound = m.loadFile("DeathSound.wav");
+    
     loadCactus();
   }
 
@@ -116,6 +120,7 @@ class MiniContainer {
   }
 
   void deadMessage() {
+    ripSound.loop();
     textSize(48);
     text("Game over", width/2, 200);    
     restartButton.display();
