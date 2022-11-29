@@ -6,8 +6,8 @@ class Bird {
     characterUp   = loadImage("BirdUp.png");
     characterDown = loadImage("BirdDown.png");
     x             = width - 50;
-    y             = int(random(150, 350));
-    speed         = 5;
+    y             = int(random(200, 350));
+    speed         = 8;
   }
 
   void show() {
@@ -39,8 +39,8 @@ class Bird {
   int height() {
     return 90;
   }
-  
-  void setPosX(int pos){
+
+  void setPosX(int pos) {
     x = pos + width();
   }
 }

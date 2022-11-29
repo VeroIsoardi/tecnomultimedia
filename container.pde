@@ -1,7 +1,7 @@
 class Container {
   Menu         menu;
   Credits      credits;
-  MiniContainer     miniContainer;
+  MiniGame     miniGame;
   Instructions instructions;
   PFont        font;
   int          screen;     
@@ -9,7 +9,7 @@ class Container {
   Container() {
     menu         = new Menu(this);
     credits      = new Credits(this);
-    miniContainer     = new MiniContainer(this);
+    miniGame     = new MiniGame(this);
     instructions = new Instructions(this);
     font         = loadFont("RetroGaming.vlw");
     screen       = 0;
@@ -26,7 +26,7 @@ class Container {
       instructions.display();
       break;
     case 2:
-      miniContainer.play();
+      miniGame.play();
       break;
     case 3: 
       credits.display();
@@ -36,7 +36,7 @@ class Container {
 
   void setKey(char space) {
     if (space == ' ' && screen == 2) {
-      miniContainer.jump();
+      miniGame.jump();
     }
   }
 
@@ -49,15 +49,15 @@ class Container {
       instructions.mouseClick(coordX, coordY);
       break;
     case 2:
-      miniContainer.mouseClick(coordX, coordY);
+      miniGame.mouseClick(coordX, coordY);
       break;
     case 3: 
       credits.mouseClick(coordX, coordY);
       break;
     }
   }
-  
-  void changeScreen(int screenNumber){
+
+  void changeScreen(int screenNumber) {
     screen = screenNumber;
   }
 }

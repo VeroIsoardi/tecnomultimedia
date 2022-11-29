@@ -1,4 +1,4 @@
-class MiniContainer {
+class MiniGame {
   PImage    gameBackground;
   Bird      bird;
   Cactus[]  cactus;
@@ -10,9 +10,9 @@ class MiniContainer {
   int       objectPosX, objectPosY, objectHeight, objectWidth;
   boolean   endGame, isBirdFlying;
   AudioPlayer ripSound;
-  
 
-  MiniContainer(Container g) {
+
+  MiniGame(Container g) {
     gameBackground = loadImage("GameBackground.png");
     dino           = new Dino();
     bird           = new Bird();
@@ -25,8 +25,8 @@ class MiniContainer {
     isBirdFlying   = false;
     dinoHeight     = dino.height();
     dinoWidth      = dino.width();
-    ripSound = m.loadFile("DeathSound.wav");
-    
+    ripSound       = m.loadFile("DeathSound.wav");
+
     loadCactus();
   }
 
@@ -105,8 +105,8 @@ class MiniContainer {
       objectWidth  = cactus[currentIndex].width();
     }
 
-    if (dinoPosX - dinoWidth/2 < objectPosX + objectWidth/2 && dinoPosX + dinoWidth/2 > objectPosX - objectWidth/2) {
-      if (dinoPosY - dinoHeight/2 < objectPosY + objectHeight/2 && dinoPosY + dinoHeight/2 > objectPosY - objectHeight/2) {
+    if (dinoPosX < objectPosX + objectWidth && dinoPosX + dinoWidth > objectPosX) {
+      if (dinoPosY < objectPosY + objectHeight/2 && dinoPosY + dinoHeight > objectPosY) {
         return true;
       }
     }

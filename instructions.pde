@@ -15,7 +15,7 @@ class Instructions {
 
     textSize(40);
     text("How to play", 600, 100);
-    
+
     textSize(20);
     text("Click on Start Game and start jumping with the space bar \n to avoid crashing into the cactuses and velociraptors.", 600, 200);
     text("Be careful, as time goes by the speed and the amount of obstacles will increase.", 600, 270);

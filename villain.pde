@@ -1,4 +1,0 @@
-class Villain {
-  Villain() {
-  }
-}
